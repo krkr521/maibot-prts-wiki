@@ -1,0 +1,15 @@
+[plugin]
+enabled = false
+config_version = "1.0.0"
+
+[network]
+timeout_seconds = 12.0
+cache_ttl_seconds = 300
+
+[result]
+max_chars = 10000
+search_limit = 5
+recruit_limit = 30
+
+[commands]
+require_at_in_groups = true

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "component_defaults": {
+    "menu_group": "prts",
+    "menu_label": "查 PRTS / 明日方舟",
+    "menu_description": "查询干员、技能、模组、敌人、关卡与公开招募"
+  },
+  "components": {
+    "prts_command": {"usage": "/prts <词条>；/prts搜索 <关键词>；/prts公招 <标签>", "example": "/prts 能天使#技能", "permissions": ["群聊指令需要 @机器人"]},
+    "prts_query": {"usage": "聊到方舟具体事实时自主查证后接话，无须要求搜索", "example": "阿能过载好像是手动的？", "user_facing": true},
+    "prts_search": {"usage": "搜索 PRTS 词条", "user_facing": true},
+    "prts_recruit": {"usage": "查询公开招募标签组合", "example": "公招标签：治疗、近战位、支援，怎么选？", "user_facing": true},
+    "prts.lookup": {"user_facing": false}
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "required_capabilities": ["declarative_basic"],
+  "pages": [{
+    "id": "prts",
+    "title": "PRTS Wiki 查询",
+    "description": "输入词条或公招标签后点击刷新查询。资料来自 PRTS Wiki。",
+    "placement": "sidebar",
+    "icon": "database",
+    "mode": "declarative",
+    "queries": {"lookup": {
+      "api": "prts.lookup",
+      "version": "1",
+      "parameters": {
+        "query": {"type": "string", "required": true, "max_length": 128},
+        "mode": {"type": "string", "choices": ["query", "search", "recruit"]},
+        "category": {"type": "string", "choices": ["auto", "operator", "enemy", "stage", "item"]},
+        "section": {"type": "string", "max_length": 64},
+        "limit": {"type": "integer", "minimum": 1, "maximum": 10}
+      }
+    }},
+    "content": [
+      {"type": "input", "name": "query", "label": "词条或公招标签", "value": "能天使"},
+      {"type": "select", "name": "mode", "label": "查询类型", "value": "query", "options": [
+        {"label": "词条正文", "value": "query"}, {"label": "搜索", "value": "search"}, {"label": "公开招募", "value": "recruit"}
+      ]},
+      {"type": "input", "name": "section", "label": "章节（可选）", "value": ""},
+      {"type": "text", "format": "log", "value": {"source": "lookup", "field": "content"}}
+    ],
+    "auto_refresh": false
+  }]
+}
